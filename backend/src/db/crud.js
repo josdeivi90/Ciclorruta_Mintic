@@ -6,15 +6,24 @@ const db = require('./firebase.js');
 
 // Get all users
 
-function getUsers(){
+function getUsers(callBack){
     db.collection("users").get().then((usuarios) => {
+        var arrayUsers = [];
         usuarios.forEach((usuario) => {
-            console.log(usuario.data());
+            //console.log(usuario.data());
+            arrayUsers.push(usuario.data());
         });
+
+        // Aquí se debe enviar la respuseta al get request
+        callBack(arrayUsers);
     });
 }
 
-module.exports = getUsers;
+module.exports = {
+    getUsers
+};
+
+
 /*
 // Ejemplo de escritura en Firebase
 db.collection("users").add({
