@@ -5,6 +5,7 @@
 .idea
 **/node_modules/*
 **/.firebaserc
+ciclorrutamintic-4c7fa91c0b51.json
 
 ### Firebase Patch ###
 .runtimeconfig.json
