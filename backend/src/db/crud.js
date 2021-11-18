@@ -1,42 +1,84 @@
-const db = require('./firebase.js');
-
-// CRUD Users
-
-// READ en Firebase
+const db = require("./firebase.js");
 
 // Get all users
 
-function getUsers(callBack){
-    db.collection("users").get().then((usuarios) => {
-        var arrayUsers = [];
-        usuarios.forEach((usuario) => {
-            //console.log(usuario.data());
-            arrayUsers.push(usuario.data());
+function getciclorutas(callback){
+    return db.collection("ciclorutas").get()
+        .then((docs) => {
+            var arrayciclorutas = []
+            docs.forEach((ruta) => { 
+            arrayciclorutas.push(obj);
+//console.log(user.data());
         });
+        callback(arrayciclorutas);
+    }).catch((error) => {
+        callback(`Error to get users ${error}`);
+    })
+} 
 
-        // Aquí se debe enviar la respuseta al get request
-        callBack(arrayUsers);
-    });
+
+// Adicionar ruta
+function addruta(ruta, callback){
+    return db.collection("ciclorutas").add(ruta)
+        .then(() => {
+            callback("Success");
+        })
+        .catch((error) => {
+            callback(`Error to get users ${error}`);
+        })
 }
 
-module.exports = {
-    getUsers
-};
+const ruta = {
+    nombre: "americas",
+    localizacion: "bogota",
+    lugares: ["centro","suba"]
 
+}
 
 /*
-// Ejemplo de escritura en Firebase
-db.collection("users").add({
-    first: "Ada",
-    last: "lovelace",
-    born: 1815
-})
-.then((docRef) => {
-    console.log("Document written with ID: ", docRef.id);
-})
-.catch((error) => {
-    console.log("Error adding document: ", error);
-});
+function updateExpertPartially(uid, expert, callback){
+    return db.collection("experts").doc(uid).update(expert)
+        .then(() => {
+            callback("Success");
+        })
+        .catch((error) =>{
+            callback(`Error to get users ${error}`);
+        })
+}
+
+
+function deleteExpert(uid, callback){
+    return db.collection("experts").doc(uid).delete()
+    .then(() => {
+        callback("Success");
+    })
+    .catch((error) =>{
+        callback(`Error to get users ${error}`);
+    })
+}
+
+function searchExpert(location, callback) {
+    return db.collection('experts').where("location", "==", location).get()
+        .then((refDoc) => {
+            var arrayExperts = [];
+            refDoc.forEach(doc => {       
+                //doc.id --> El id del documento         
+                arrayExperts.push(doc.data());
+            })
+            callback(arrayExperts);
+        })
+        .catch((err) => {
+            callback("Error to search expert ", err)
+        })
+}
+
 */
 
-// Ejemplo de escritura -> lectura en Firebase
+module.exports = {
+    getciclorutas,
+    addruta
+    //updateExpertPartially,
+    //deleteExpert, searchExpert
+}
+
+
