@@ -52,3 +52,4 @@ Pasos que seguimod para creación del proyecto:
     en la carpeta src dejar solo index.js y app.js
 
 21. Instalamos bootstrap: npm install react-bootstrap bootstrap@5.1.3
+
