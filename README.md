@@ -42,3 +42,14 @@ Pasos que seguimod para creación del proyecto:
 18. Instalamos nodemon: npm install nodemon 
 
 19. En package.json incluimos: "dev": "nodemon index.js",
+
+20. instalamos react: npx create-react-app frontend
+    ejecutar: cd forntend
+    ejecutar: npm start
+
+    Borrar el .gitignore y el readme de la carpeta frontend
+    En la carpeta public dejar solo el index.html
+    en la carpeta src dejar solo index.js y app.js
+
+21. Instalamos bootstrap: npm install react-bootstrap bootstrap@5.1.3
+
