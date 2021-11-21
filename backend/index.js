@@ -36,7 +36,11 @@ app.get('/users/:id',function(req,res){
 app.post('/users', function(req, res){
     const usuario = req.body;
     dbU.addUser(usuario, function(status){
-        res.json(status);
+        if (status === "Success"){
+            res.status(201).json(status);
+        } else {
+            res.status(503).json(status);
+        }
     })
 })
 
