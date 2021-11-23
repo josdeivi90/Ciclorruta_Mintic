@@ -53,3 +53,5 @@ Pasos que seguimod para creación del proyecto:
 
 21. Instalamos bootstrap: npm install react-bootstrap bootstrap@5.1.3
 
+22. Instalamos dom para creación de rutas: npm install react-router-dom
+
