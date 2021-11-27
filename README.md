@@ -1,4 +1,6 @@
 # Ciclorruta_Mintic
+Version: Primera versión del frontend
+
 proyecto realizado en el ciclo 4 mintic
 
 OJO: al clonar el repositorio se debe ejecutar: npm install
@@ -58,3 +60,5 @@ Pasos que seguimod para creación del proyecto:
 23. Instalamos la libreria de iconos: npm install 
 
 24. Para el inicio de sesion con google: https://github.com/firebase/firebaseui-web-react
+
+25. 
