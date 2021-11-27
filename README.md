@@ -55,3 +55,6 @@ Pasos que seguimod para creación del proyecto:
 
 22. Instalamos dom para creación de rutas: npm install react-router-dom
 
+23. Instalamos la libreria de iconos: npm install 
+
+24. Para el inicio de sesion con google: https://github.com/firebase/firebaseui-web-react
