@@ -1,14 +1,27 @@
 import React from "react";
 import { Dropdown } from "react-bootstrap";
 
+const divStyle = {
+  width: '30%',
+  height: '40%',
+};
+const other = {
+  textAlign: "left",
+  marginBottom: "1%",
+  display: "flex",
+  flexBasis: "830px",
+  /*flexGrow: "0 0 6000%",
+  flexShrink: 1,*/
+};
+
 const SearchBar = () => {
   return (
-    <Dropdown>
-      <Dropdown.Toggle variant="secondary" id="dropdown-basic">
+    <Dropdown style={other} >
+      <Dropdown.Toggle variant="secondary" id="dropdown-basic" style={divStyle}>
         ¿Qué ruta <strong>deseas</strong>?
-      </Dropdown.Toggle>
+      </Dropdown.Toggle >
 
-      <Dropdown.Menu>
+      <Dropdown.Menu >
         <Dropdown.Item href="#/action-1">Septimazo</Dropdown.Item>
         <Dropdown.Item href="#/action-2">Avenida Boyaca</Dropdown.Item>
         <Dropdown.Item href="#/action-3">Ruta 127</Dropdown.Item>

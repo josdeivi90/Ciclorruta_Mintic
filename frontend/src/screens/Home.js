@@ -2,11 +2,18 @@ import React from "react";
 import Map from "../components/Maps"
 
 import UserHome from "../components/UserHome";
+import SearchBar from "../components/SearchBar";
 
-const Home = () => {
+const Home = () => { 
   return (
-    <div>
-      <UserHome/>
+    <div> <div style={{
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+  }}> 
+    <UserHome/>
+    <SearchBar/>
+     </div>
       <Map rutas={
         [
           {latitud: 4.76072311639374, longitud: -74.06607043811893},
