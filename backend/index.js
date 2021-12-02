@@ -1,15 +1,14 @@
-
 // Forma de importar variables o funciones, cuando lo que se exporta es un objeto
 const dbU = require('./src/db/crudUsers');
 
-const {getciclorutas, addruta, getcicloruta} = require("./src/db/crud.js");
+const { getciclorutas, addruta, getcicloruta } = require("./src/db/crud.js");
 
 // Servidor Express:
 
 const express = require('express');
 const app = express();
 const cors = require("cors");
-const port = 5000;
+const port = process.env.PORT || 5000;
 
 app.use(cors());
 app.use(express.json());
@@ -19,26 +18,26 @@ app.listen(port, () => {
 });
 
 
-app.get('/ruta/:id',function(req,res){
+app.get('/ruta/:id', function(req, res) {
     const uid = req.params.id
-    getcicloruta(uid, function(arrayciclorutas){
+    getcicloruta(uid, function(arrayciclorutas) {
         res.json(arrayciclorutas)
     })
 })
 
 
-app.get('/getrutas',function(req,res){
-    getciclorutas(function(arrayciclorutas){
+app.get('/getrutas', function(req, res) {
+    getciclorutas(function(arrayciclorutas) {
         res.json(arrayciclorutas)
     })
 })
 
-app.post("/postruta", function(req, res){
+app.post("/postruta", function(req, res) {
     const ruta = req.body;
     console.log(ruta);
     console.log(req.params);
-    addruta(ruta, function(status){
-        if(status === "Success"){
+    addruta(ruta, function(status) {
+        if (status === "Success") {
             res.status(201).json(status);
         } else {
             res.status(503).json(status);
