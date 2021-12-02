@@ -15,6 +15,10 @@ const other = {
 };
 
 const SearchBar = () => {
+  const redirectUrl = "/home";
+  const setSearch = (roadSelected) => {
+    localStorage.setItem("road", roadSelected);
+  }
   return (
     <Dropdown style={other} >
       <Dropdown.Toggle variant="secondary" id="dropdown-basic" style={divStyle}>
@@ -22,8 +26,12 @@ const SearchBar = () => {
       </Dropdown.Toggle >
 
       <Dropdown.Menu >
-        <Dropdown.Item href="#/action-1">Septimazo</Dropdown.Item>
-        <Dropdown.Item href="#/action-2">Avenida Boyaca</Dropdown.Item>
+        <Dropdown.Item
+          href={redirectUrl} 
+          onClick={() => setSearch("Av_boyaca")}>
+          Avenida Boyaca
+        </Dropdown.Item>
+        <Dropdown.Item href="#/action-2">Septimazo</Dropdown.Item>
         <Dropdown.Item href="#/action-3">Ruta 127</Dropdown.Item>
         <Dropdown.Item href="#/action-3">Ruta 116</Dropdown.Item>
       </Dropdown.Menu>

@@ -2,19 +2,16 @@
 // Forma de importar variables o funciones, cuando lo que se exporta es un objeto
 const dbU = require('./src/db/crudUsers');
 
-const {getciclorutas, addruta} = require("./src/db/crud.js");
+const {getciclorutas, addruta, getcicloruta} = require("./src/db/crud.js");
 
 // Servidor Express:
 
 const express = require('express');
 const app = express();
-const port = 3000;
+const cors = require("cors");
+const port = 5000;
 
-app.listen(port, () => {
-    console.log("Running on port " + port);
-    });
-
-
+app.use(cors());
 app.use(express.json());
 
 app.listen(port, () => {
@@ -22,7 +19,15 @@ app.listen(port, () => {
 });
 
 
-app.get('/get-rutas',function(req,res){
+app.get('/ruta/:id',function(req,res){
+    const uid = req.params.id
+    getcicloruta(uid, function(arrayciclorutas){
+        res.json(arrayciclorutas)
+    })
+})
+
+
+app.get('/getrutas',function(req,res){
     getciclorutas(function(arrayciclorutas){
         res.json(arrayciclorutas)
     })

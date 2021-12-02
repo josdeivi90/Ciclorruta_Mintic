@@ -2,20 +2,33 @@ const db = require("./firebase.js");
 
 // Get all users
 
+function getcicloruta(uid, callback){
+    return db
+    .collection("Bogota")
+    .doc(uid)
+    .get()
+    .then((refDoc) => {
+      callback(refDoc.data());
+    })
+    .catch((error) => {
+      callback(`Error to get cicloruta ${error}`);
+    });
+} 
+
 function getciclorutas(callback){
-    return db.collection("Bogota").get()
+    return db
+        .collection("Bogota")
+        .get()
         .then((docs) => {
             var arrayciclorutas = []
             docs.forEach((ruta) => { 
-            arrayciclorutas.push(ruta._fieldsProto);
-            //console.log(user.data());
-        });
-        callback(arrayciclorutas);
-    }).catch((error) => {
-        callback(`Error to get users ${error}`);
-    })
+                arrayciclorutas.push(ruta._fieldsProto);
+            });
+            callback(arrayciclorutas);
+        }).catch((error) => {
+            callback(`Error to get users ${error}`);
+        })
 } 
-
 
 // Adicionar ruta
 function addruta(ruta, callback){
@@ -76,7 +89,8 @@ function searchExpert(location, callback) {
 
 module.exports = {
     getciclorutas,
-    addruta
+    addruta,
+    getcicloruta
     //updateExpertPartially,
     //deleteExpert, searchExpert
 }
