@@ -15,7 +15,7 @@ const center = {
 
 function Map(props) {
 
-    const [rutas, setRutas] = useState({});
+    const [rutas, setRutas] = useState([]);
 
     useEffect(() => {
       buscarruta (props.rutas, setRutas)
@@ -32,11 +32,13 @@ function Map(props) {
            { /* Child components, such as markers, info windows, etc. */ }
            { /* {console.log(rutas)}
             {
-                rutas.map(coordenada => 
+                rutas.map(coordenada =>
                     <Marker
-                        position={{ lat: coordenada.latitude, lng: coordenada.longitude }}
+                        position={{ lat: coordenada._latitude, lng: coordenada._longitude }}
                         label = "descripcion prueba"
-                    />
+                    >
+                      {console.log( coordenada)}
+                    </Marker>
                 )
             }*/}
         </GoogleMap>

@@ -8,7 +8,7 @@ function getcicloruta(uid, callback){
     .doc(uid)
     .get()
     .then((refDoc) => {
-      callback(refDoc.data());
+      callback([refDoc.data()]);
     })
     .catch((error) => {
       callback(`Error to get cicloruta ${error}`);
@@ -22,7 +22,8 @@ function getciclorutas(callback){
         .then((docs) => {
             var arrayciclorutas = []
             docs.forEach((ruta) => { 
-                arrayciclorutas.push(ruta._fieldsProto);
+                //arrayciclorutas.push(ruta._fieldsProto);
+                arrayciclorutas.push(ruta.data());
             });
             callback(arrayciclorutas);
         }).catch((error) => {
