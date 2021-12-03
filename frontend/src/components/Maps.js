@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import { GoogleMap, LoadScript, /*Marker */} from '@react-google-maps/api';
+import { GoogleMap, LoadScript, Marker } from '@react-google-maps/api';
 import { buscarruta } from "../apis/crud"
 
 const containerStyle = {
@@ -30,7 +30,6 @@ function Map(props) {
         zoom={12}
         >
            { /* Child components, such as markers, info windows, etc. */ }
-           { /* {console.log(rutas)}
             {
                 rutas.map(coordenada =>
                     <Marker
@@ -40,7 +39,7 @@ function Map(props) {
                       {console.log( coordenada)}
                     </Marker>
                 )
-            }*/}
+            }
         </GoogleMap>
     </LoadScript>
   )

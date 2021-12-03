@@ -8,7 +8,11 @@ function getcicloruta(uid, callback){
     .doc(uid)
     .get()
     .then((refDoc) => {
-      callback([refDoc.data()]);
+        var coordenas = []
+        Object.values(refDoc.data()).map( e => {
+            coordenas.push(e)
+        })
+      callback(coordenas);
     })
     .catch((error) => {
       callback(`Error to get cicloruta ${error}`);
