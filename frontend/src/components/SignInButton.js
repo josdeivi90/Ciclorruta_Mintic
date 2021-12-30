@@ -6,12 +6,13 @@ import "firebase/compat/auth";
 
 // Configure Firebase.
 const config = {
-  apiKey: "AIzaSyDj5Sxah_ANm3Av27ubwX2mJiFh-8_W-Dk",
-  authDomain: "experts-81553.firebaseapp.com",
-  projectId: "experts-81553",
-  storageBucket: "experts-81553.appspot.com",
-  messagingSenderId: "253299573486",
-  appId: "1:253299573486:web:50533239b957820a4529ff",
+  apiKey: "AIzaSyCiRyZ6PusAGZCx9zTfhmNrc3g-dyR7VpU",
+  authDomain: "ciclorrutamintic.firebaseapp.com",
+  projectId: "ciclorrutamintic",
+  storageBucket: "ciclorrutamintic.appspot.com",
+  messagingSenderId: "443945219003",
+  appId: "1:443945219003:web:4dcfa3249a6e3993a88a9e",
+  measurementId: "G-QFCGXDC25Q"
 };
 firebase.initializeApp(config);
 

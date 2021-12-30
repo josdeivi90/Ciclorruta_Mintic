@@ -46,7 +46,7 @@ Pasos que seguimod para creación del proyecto:
 19. En package.json incluimos: "dev": "nodemon index.js",
 
 20. instalamos react: npx create-react-app frontend
-    ejecutar: cd forntend
+    ejecutar: cd frontend
     ejecutar: npm start
 
     Borrar el .gitignore y el readme de la carpeta frontend
@@ -57,8 +57,13 @@ Pasos que seguimod para creación del proyecto:
 
 22. Instalamos dom para creación de rutas: npm install react-router-dom
 
-23. Instalamos la libreria de iconos: npm install 
+23. Instalamos la libreria de iconos: npm install react-bootstrap-icons --save
 
-24. Para el inicio de sesion con google: https://github.com/firebase/firebaseui-web-react
+24. Para el inicio de sesion con google buscamos react firebaseui: https://github.com/firebase/firebaseui-web-react 
+    En esta página está el tutorial, solo es copiar el ejemplo. Lo podemos poner en un componente que creemos de nombre SingInButton.js por ejemplo.
+    Ojo: se requiere instalar algunas librerías:
+        npm install --save react-firebaseui
+        npm install --save firebase
 
-25. 
+25. Vamos a firebase -> Consola. En autentication encontramos todas las opciones, para este caso elegimos google. 
+    En Project Overview podemos adicionar una app: -> add app -> web (</>). Le ponemos un nombre (pe. frontend) y la página me arroja el código de configuración (const firebaseConfig = {...}), que debemos copiar en el archivo SingInButton.js
