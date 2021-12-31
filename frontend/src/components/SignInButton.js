@@ -16,6 +16,7 @@ const config = {
 };
 firebase.initializeApp(config);
 
+
 // Configure FirebaseUI.
 const uiConfig = {
   // Popup signin flow rather than redirect flow.
@@ -24,7 +25,28 @@ const uiConfig = {
   signInSuccessUrl: "/home",
   // We will display Google and Facebook as auth providers.
   signInOptions: [firebase.auth.GoogleAuthProvider.PROVIDER_ID],
+
+  
+  callbacks: {
+    
+    signInSuccessWithAuthResult: function (authResult, redirectUrl) {
+      
+      const user = {
+        
+        uid: authResult.user.uid,
+        name: authResult.user.name,
+        photoUrl: authResult.user.photoUrl,
+        email: authResult.user.email,
+        flagNewUser: authResult.additionalUserInfo.isNewUser,
+      };
+      localStorage.setItem("user", JSON.stringify(user));
+      return true;
+    }
+  }
+
 };
+
+
 
 function SignInButton() {
   return (

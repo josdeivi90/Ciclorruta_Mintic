@@ -67,3 +67,8 @@ Pasos que seguimod para creación del proyecto:
 
 25. Vamos a firebase -> Consola. En autentication encontramos todas las opciones, para este caso elegimos google. 
     En Project Overview podemos adicionar una app: -> add app -> web (</>). Le ponemos un nombre (pe. frontend) y la página me arroja el código de configuración (const firebaseConfig = {...}), que debemos copiar en el archivo SingInButton.js
+
+26. Para pasar info de una página a otra usamos localstorage.
+
+27. Para hacer request entre páginas (frontend -> backend) instalamos axios: npm install --save axios
+    Luego ya puedo crear la carpeta y archivo apis->crud.js

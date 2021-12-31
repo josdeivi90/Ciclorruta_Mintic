@@ -2,6 +2,12 @@ import React from "react";
 import { Dropdown } from "react-bootstrap";
 
 const SearchBar = () => {
+  const redirectUrl  = "/search-results";
+
+  const setSearchedDestiny = (selectedDestiny) => {
+    localStorage.setItem("destiny", selectedDestiny);
+  }
+
   return (
     <Dropdown>
       <Dropdown.Toggle variant="secondary" id="dropdown-basic">
@@ -9,11 +15,11 @@ const SearchBar = () => {
       </Dropdown.Toggle>
 
       <Dropdown.Menu>
-        <Dropdown.Item href="#/action-1">Teusaquillo</Dropdown.Item>
-        <Dropdown.Item href="#/action-2">Chapinero</Dropdown.Item>
-        <Dropdown.Item href="#/action-3">Bosa</Dropdown.Item>
-        <Dropdown.Item href="#/action-3">Kennedy</Dropdown.Item>
-        <Dropdown.Item href="#/action-3">Otro</Dropdown.Item>
+        <Dropdown.Item href={redirectUrl} onClick={() => setSearchedDestiny("Teusaquillo")}>Teusaquillo</Dropdown.Item>
+        <Dropdown.Item href={redirectUrl} onClick={() => setSearchedDestiny("Chapinero")}>Chapinero</Dropdown.Item>
+        <Dropdown.Item href={redirectUrl} onClick={() => setSearchedDestiny("Bosa")}>Bosa</Dropdown.Item>
+        <Dropdown.Item href={redirectUrl} onClick={() => setSearchedDestiny("Kennedy")}>Kennedy</Dropdown.Item>
+        <Dropdown.Item href={redirectUrl} onClick={() => setSearchedDestiny("Otro")}>Otro</Dropdown.Item>
       </Dropdown.Menu>
     </Dropdown>
   );
